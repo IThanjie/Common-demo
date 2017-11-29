@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>无标题文档</title>
+      <style type="text/css">
+          *{
+              padding:0px;
+              margin:0px;
+              border:0px;
+          }
+          li{
+              list-style-type:none;
+          }
+          a{
+              text-decoration:none;
+          }
+          #wrapper{
+              margin:0px auto;
+              border:0px;
+              padding:0px;
+          }
+          #show-area{
+              width:800px;
+              height:450px;
+              position:relative;
+              margin:0px auto;
+              overflow:hidden;
+          }
+          #show-area ul{
+              position:relative;
+              width:5600px;
+              height:450px;
+              right:0;
+          }
+          #show-area ul li{
+              float:left;
+              width:800px;
+          }
+          #controler{
+              width:130px;
+              text-align:center;
+              position:absolute;
+              top:425px;
+              left:370px;
+              z-index:1;
+          }
+
+
+          #controler div{
+              height:15px;
+              width:15px;
+              background-color:#ccc;
+              float:left;
+              margin-left:5%;
+              opacity:0.9;/*透明度50%*/
+              filter:Alpha(opacity=90);/*为了适应旧的浏览器*/
+          }
+
+          #controlerwenzi{
+              width:130px;
+              height:30px;
+              text-align:left;
+              position:absolute;
+              top:42px;
+              left:37px;
+              z-index:1;
+          }
+          #controlerwenzi div{
+              position:absolute;
+              display: none;
+              float: left;
+          }
+          .onclick{
+              background-color:#FFF !important;
+          }
+          .oonclick{
+              color:yellow !important;
+          }
+      </style>
+  </head>
+
+<body>
+  <div id="wrapper">
+    <div id="show-area">
+      <ul>
+       <li><a href="#"><img src="img/1.jpg"></a></li>
+       <li><a href="#"><img src="img/2.jpg"></a></li>
+       <li><a href="#"><img src="img/3.jpg"></a></li>
+       <li><a href="#"><img src="img/4.jpg"></a></li>
+       <li><a href="#"><img src="img/5.jpg"></a></li>
+       <li><a href="#"><img src="img/6.jpg"></a></li>
+      </ul>
+      <div id="controler">
+        <div class="">1</div>
+        <div class="">2</div>
+        <div class="">3</div>
+        <div class="">4</div>
+        <div class="">5</div>
+        <div class="">6</div>
+      </div>
+      <div id="controlerwenzi">
+        <div class="">汉东省第一实验小学开学啦！</div>
+        <div class="">zizizi第一实验小学开学啦！</div>
+        <div class="">汉东省第一实验小学开学啦！</div>
+        <div class="">zizizi第一实验小学开学啦！</div>
+        <div class="">汉东省第一实验小学开学啦！</div>
+        <div class="">zizizi第一实验小学开学啦！</div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+  <script>
+  $(function(){
+   var i = 0;
+   var imgWidth = $("#show-area ul li").width();
+
+   var clone = $("#show-area ul li").first().clone();
+   $("#show-area ul").append(clone);
+   //复制第一张图片并且添加到最后达到无缝连接的效果
+
+   var size = $("#show-area ul li").size();//得到所有li的个数
+
+  $("#controler div").eq(0).addClass("onclick");
+  $("#controlerwenzi div").eq(0).css("display","inline-block").siblings().css("display","none");
+
+   /*第3步*/
+   //按钮移出移入事件
+   $("#controler div").hover(function(){
+    i = $(this).index();
+    clearInterval(timer);
+    $("#show-area ul").stop().animate({left:-i * imgWidth});
+    $(this).addClass("onclick").siblings().removeClass("onclick");
+    $("#controlerwenzi div").eq(i).css("display","inline-block").siblings().css("display","none");
+   },function(){
+     timer = setInterval(function(){
+     Toleft();
+        },3000)
+
+   })
+
+
+   //ul鼠标移出移入事件
+   $("#show-area ul").hover(function(){
+     clearInterval(timer);
+   },function(){
+      timer = setInterval(function(){
+     Toleft();
+        },3000)
+
+   })
+
+   //定时器
+   var timer = setInterval(function(){
+     Toleft();
+   },3000)
+
+   /*第2.1步*/
+   //左按钮实现的函数
+   function Toleft(){
+     i++;
+     if(i==size){
+        //当当前图片为最后一张图片的时候（我们一开始复制并且添加到ul最后面的图片）并且再点击了一次左按钮，这时候我们就利用css的快速转换效果把ul移动第一张图片的位置并且第二张图片滑入达到无缝效果（css的变换效果很快我们肉眼是很难看见的）
+        $("#show-area ul").css({left:0});
+        i = 1;
+          }
+     $("#show-area ul").stop().animate({left:-i*imgWidth},1000);
+
+     if(i == size -1){
+       $("#controler div").eq(0).addClass("onclick").siblings().removeClass("onclick");
+        $("#controlerwenzi div").eq(0).css("display","inline-block").siblings().css("display","none");
+
+     }else{
+       $("#controler div").eq(i).addClass("onclick").siblings().removeClass("onclick");
+       $("#controlerwenzi div").eq(i).css("display","inline-block").siblings().css("display","none");
+          }
+        }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>mobiscroll</title>
+    <link rel="stylesheet" href="./css/mobiscroll.custom-3.0.0-beta2.min.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+    <style type="text/css">
+        html,body{height:100%}
+        body{margin:0;padding:10px;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+        button{display:inline-block;text-decoration:none;padding:0.8em 2.6em;margin:20px 10px 0 0;outline:0;border:0;overflow:visible;cursor:pointer;color:#fff;background:#5185a8;font-family:Arial,sans-serif,verdana;font-size:14px;font-weight:100;-webkit-transition:background 0.3s ease-out;-moz-transition:background 0.3s ease-out;-o-transition:background 0.3s ease-out;transition:background 0.3s ease-out}
+        button:hover{background:#34566d}
+        input{width:100%;margin:0 0 10px 0;padding:10px;border:1px solid #ccc;border-radius:0;background:#fff;font-family:Arial,sans-serif,verdana;text-shadow:none;color:#000;font-size:15px;-webkit-appearance:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+        .demo-main-cont{height:100%}
+        .mbsc-sc-itm{text-align:center !important}
+    </style>
+</head>
+<body class="demo-main-cont demo-comp-number demo-display-bottom demo-theme-mobiscroll">
+    <input id="date" placeholder="Please Select ..." />     <!-- 选择日期 -->
+    <input id="integer" placeholder="Please Select ..." />  <!-- 选择数字 -->
+    <script type="text/javascript">
+    $(function () {
+        var now = new Date(),
+            min = new Date(now.getFullYear() - 4, now.getMonth(), now.getDate());
+            max = new Date(now.getFullYear() + 4, now.getMonth(), now.getDate());
+        var instance = mobiscroll.date('#date', {
+            lang: 'zh',             //语言
+            display: 'bottom',      //在页面的什么位置显示
+            max: max,        //可供选择的最大日期
+            min: min,        //可供选择的最小日期
+            theme:'ios',     //主题，插件的皮肤效果，此处选择ios，为了模仿ios的select效果
+            dateFormat:'yy-mm-dd'      //日期格式
+        });
+
+        var instance2 = mobiscroll.number('#integer', {
+            lang: 'zh',
+            display: 'bottom',
+            layout: 'fixed',
+            step: 1,        //前后数字差，可根据这个参数来设置2 4 6 8之类的数字选择
+            min: 1,         //最小数字
+            max: 50,        //最大数字
+            width: 100,
+            defaultValue:28,    //刚显示出来时选择的数字
+            theme:'ios'      //主题
+        });
+    });
+    </script>
+</body>
+</html>

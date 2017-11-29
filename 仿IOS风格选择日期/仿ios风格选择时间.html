@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script src="datePicker.js"></script>
+    <title>仿ios风格选择时间</title>
+    <style>
+      *{margin:0;padding: 0;}
+      html{font-size: 100px;}
+      div{font-size: 0.18rem;}
+      input{border: none;border-radius: 0;width: 50%;text-align: right;font-size: 0.18rem;float: right;-webkit-appearance : none;}
+      select{-webkit-appearance:none;appearance:none;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);border: none;font-size: 0.18rem;float: right;color: #A1A1A1;background: #FFF;}
+      .icon-fanhui{color: #000;}
+      .icon-dingwei{COLOR: #EFEFEF;}
+      .icon-53,.icon-xiao63{color:#000;font-size: 0.21rem;}
+    </style>
+  </head>
+  <!-- onload="init();" -->
+  <body >
+
+    
+    <form class="" name="fileForm" action="" method="get">
+     
+        <div>
+          到店时间
+        <input type="data" name="data" readonly   id="go_data" name="" value="" placeholder="请选择"  style="color:#A1A1A1;">
+        </div>
+    </form>
+
+        
+
+
+    <!-- 选择时间 -->
+    <script>
+    var calendar = new datePicker();
+        calendar.init({
+        'trigger': '#go_data', /*按钮选择器，用于触发弹出插件*/
+        'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'minDate':'2016-1-1',/*最小日期*/
+        'maxDate':'2100-12-31',/*最大日期*/
+        'onSubmit':function(){/*确认时触发事件*/
+          var theSelectData=calendar.value;
+        },
+        'onClose':function(){/*取消时触发事件*/
+        }
+        });
+    </script>
+  </body>
+</html>

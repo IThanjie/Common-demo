@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>表单验证</title>
+<script>
+function doValidate() {
+	var chineseReg = /^[\u4E00-\u9FA5]{2,4}$/;
+	if(!chineseReg.test(document.forma.name.value)) {
+		  alert('请填写中文2到4个字!!');
+		  document.forma.name.focus();
+		  return false;
+	}
+	var phoneNumReg = /(^[0-9]{3,4}\-{0,1}[0-9]{3,8}$)|(^[0-9]{3,8}$)|(^\([0-9]{3,4}\)[0-9]{3,8}$)|(^0{0,1}13[0-9]{9}$)/
+	if(!phoneNumReg.test(document.forma.phoneNum.value)) {
+		  alert('请填写正确电话号码!!');
+		  document.forma.phoneNum.focus();
+		  return false;
+	}
+	return true;
+}
+</script>
+</head>
+<body>
+<form action="" name="forma" onsubmit="return doValidate()">
+姓名：<input type="text" name="name" value="姓名"><br />
+电话：<input type="text" name="phoneNum"><br />
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

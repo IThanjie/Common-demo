@@ -1,0 +1,20 @@
+一、innerHTML - 节点（元素）的文本值
+
+innerHTML 属性设置或返回表格行的开始和结束标签之间的 HTML。
+语法 tablerowObject.innerHTML=HTML
+
+二、parentNode - 节点（元素）的父节点
+
+parentNode 属性以 Node 对象的形式返回指定节点的父节点。如果指定节点没有父节点，则返回 null。
+语法 node.parentNode（返回node对象，节点的父节点）如：返回 <li> 元素的 parentNode（父节点）document.getElementById("item1").parentNode;
+
+三、childNodes - 节点（元素）的子节点
+
+childNodes 属性返回节点的子节点集合，以 NodeList 对象。
+语法 element.childNodes（返回NodeList对象，表示节点集合。） 如：获取body元素的子节点的集合document.body.childNodes;
+
+四、attributes - 节点（元素）的属性节点
+
+attributes 属性返回指定节点的属性集合，即 NamedNodeMap。
+语法 node.attributes（返回 NamedNodeMap 对象，表示属性的集合。）如：获取元素属性的集合document.getElementsByTagName("BUTTON")[0].attributes;
+
