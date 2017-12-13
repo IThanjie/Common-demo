@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 Web 存储</title>
+  </head>
+  <body>
+    <div class="" style="width:100%;background:green;">
+      <p>使用HTML5可以在本地存储用户的浏览数据。早些时候,本地存储使用的是 cookie。但是Web 存储需要更加的安全与快速. 这些数据不会被保存在服务器上，但是这些数据只用于用户请求网站数据上.它也可以存储大量的数据，而不影响网站的性能.数据以 键/值 对存在, web网页的数据只允许该网页访问使用。</p>
+      <div class="">
+        <ul>
+          在使用 web 存储前,应检查浏览器是否支持 localStorage 和sessionStorage:
+          <div class="">
+            if(typeof(Storage)!=="undefined")
+            {
+                // 是的! 支持 localStorage  sessionStorage 对象!
+                // 一些代码.....
+            } else {
+                // 抱歉! 不支持 web 存储。
+            }
+          </div>
+        </ul>
+        <ul>
+          客户端存储数据的两个对象为：
+          <li>localStorage - 没有时间限制的数据存储</li>
+          <li>sessionStorage - 针对一个 session 的数据存储</li>
+        </ul>
+      </div>
+
+      <div class="" style="margin-left:30%;font-weight:800;">    
+        <p>不管是 localStorage，还是 sessionStorage，可使用的API都相同，常用的有如下几个（以localStorage为例）</p>
+        <p>保存数据：localStorage.setItem(key,value);</p>
+        <p>读取数据：localStorage.getItem(key);</p>
+        <p>删除单个数据：localStorage.removeItem(key);</p>
+        <p>删除所有数据：localStorage.clear();</p>
+        <p>得到某个索引的key：localStorage.key(index);</p>
+        <i>提示: 键/值对通常以字符串存储，你可以按自己的需要转换该格式。</i>
+      </div>
+    </div>
+    <div class="" style="width:50%;float:left;background:#ccc;">
+      <div class="">
+        实例
+        <iframe src="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_demo" width="100%" height="2500px"></iframe>
+      </div>
+    </div>
+
+    <div class="" style="width:50%;float:left; ">
+      <strong>接下来我们将使用 JSON.stringify 来存储对象数据，JSON.stringify 可以将对象转换为字符串。</strong>
+      <div class="" style="background:#ccc;">
+        var site = new Object;
+        var str = JSON.stringify(site); // 将对象转换为字符串
+      </div>
+      <div class="" style="background:#ccc;">
+        var site = JSON.parse(str);  //使用 JSON.parse 方法将字符串转换为 JSON 对象
+      </div>
+      <div class="" style="background:orange;">
+        例子：
+      <iframe frameborder="0"  width="100%"  height="2380px" src="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_demo2"></iframe>
+          <i>实例中的 loadAll 输出了所有存储的数据，你需要确保 localStorage 存储的数据都为 JSON 格式，否则 JSON.parse(str) 将会报错。</i>
+      </div>
+    </div>
+  </body>
+</html>

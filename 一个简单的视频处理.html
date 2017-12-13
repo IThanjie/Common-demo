@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+
+<div style="text-align:center">
+  <button onclick="playPause()">播放/暂停</button>
+  <button onclick="makeBig()">放大</button>
+  <button onclick="makeSmall()">缩小</button>
+  <button onclick="makeNormal()">普通</button>
+  <br>
+  <video id="video1" width="80%">
+    <source src="C:\Users\hanjie\Downloads\4K Video-Sony 4K video ultrahd hdr demo video for 4k tv-2160p.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    您的浏览器不支持 HTML5 video 标签。
+  </video>
+</div>
+
+<script>
+var myVideo =document.getElementById("video1");
+var widthStyle =  myVideo.getAttribute("width");
+function playPause() //播放/暂停
+{
+	if (myVideo.paused)
+	  myVideo.play();
+	else
+	  myVideo.pause();
+}
+
+	function makeBig() //放大
+{
+	 myVideo.setAttribute("width", "100%");
+}
+
+	function makeSmall() //缩小
+{
+	myVideo.setAttribute("width", "60%");
+}
+
+	function makeNormal() //普通
+{
+	myVideo.width=420;
+}
+</script>
+
+</body>
+</html>

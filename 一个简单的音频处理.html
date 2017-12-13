@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>一个简单的音频处理</title>
+  </head>
+  <body>
+
+    <audio controls> <!-- 属性：autoplay（如果出现该属性，则音频在就绪后马上播放）；controls （如果出现该属性，则向用户显示音频控件（比如播放/暂停按钮））；oop （如果出现该属性，则每当音频结束时重新开始播放） ；muted （	如果出现该属性，则音频输出为静音）；preload （规定当网页加载时，音频是否默认被加载以及如何被加载）有3个属性值，分别为：auto - 当页面加载后载入整个音频meta - 当页面加载后只载入元数据none - 当页面加载后不载入音频 ；src （规定音频文件的 URL）-->
+      <source src="horse.ogg" >
+      <source src="horse.mp3" >
+    您的浏览器不支持 audio 元素。 <!-- 此为浏览器不支持时的提示性文字 -->
+    </audio>
+
+  </body>
+</html>

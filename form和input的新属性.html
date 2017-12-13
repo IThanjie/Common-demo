@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    共有属性
+    <form> / <input> autocomplete 属性
+                      属性规定 form 或 input 域应该拥有自动完成功能。当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项。；此属性有可能在 form元素中是开启的，而在input元素中是关闭的。；此属性适用于 <form> 标签，以及以下类型的 <input> 标签：text, search, url, telephone, email, password, datepickers, range 以及 color。
+                      例子：<form action="demo-form.php" autocomplete="on">
+                                First name:<input type="text" name="fname"><br>
+                                E-mail: <input type="email" name="email" autocomplete="off"><br>
+                                <input type="submit">
+                            </form>
+     <form>
+      新属性：
+          novalidate    属性是一个 boolean(布尔) 属性.此属性规定在提交表单时不应该验证 form 或 input 域。
+                        例子：<form action="demo-form.php" novalidate></form>
+
+      <input>
+        autofocus       属性规定在页面加载时，域自动地获得焦点。 //布尔值
+                        例子：<input type="text" name="fname" autofocus>
+        form            属性规定输入域所属的一个或多个表单。 form="form表单的id，指向form表单"
+                        例子：<form id="form1"></form> <input type="text" name="lname" form="form1">
+        formaction      属性规定输入域所属的一个或多个表单。 注意：此属性会覆盖<form> 元素中的action属性；此属性用于 type="submit" 和 type="image"
+                        例子：<input type="submit" formaction="demo-admin.php" value="提交">
+        formenctype     属性描述了表单提交到服务器的数据编码 (只对form表单中 method="post" 表单)；此属性覆盖 form 元素的 enctype 属性。此属性与 type="submit" 和 type="image" 配合使用。
+                        例子：<input type="submit" formenctype="multipart/form-data" value="以 Multipart/form-data 提交">
+        formmethod      属性定义了表单提交的方式。formmethod 属性覆盖了 <form> 元素的的method 属性；此属性可以与 type="submit" 和 type="image" 配合使用。
+                        例子：<input type="submit" formmethod="post" formaction="demo-post.php" value="使用 POST 提交">
+        formnovalidate  属性是一个 boolean 属性.novalidate属性描述了 <input> 元素在表单提交时无需被验证；此属性会覆盖 <form> 元素的novalidate属性；此属性与type="submit一起使用
+                        例子：<input type="submit" formnovalidate value="不验证提交">
+        formtarget      属性指定一个名称或一个关键字来指明表单提交数据接收后的展示；此属性覆盖 <form>元素的target属性；此属性与type="submit" 和 type="image"配合使用.
+                        例子：<input type="submit" formtarget="_blank" value="提交到一个新的页面上">
+        height/width    属性规定用于 image 类型的 <input> 标签的图像高度和宽度,只适用于 image 类型的<input> 标签
+                        例子：<input type="image" src="img_submit.gif" alt="Submit" width="48" height="48">
+        list            属性规定输入域的 datalist。datalist 是输入域的选项列表。 注意：Safari 不支持 datalist 标签
+                        例子：<input list="browsers">
+                              <datalist id="browsers">
+                                <option value="Internet Explorer">
+                              </datalist>
+        multiple        属性是一个 boolean 属性；此属性规定<input> 元素中可选择多个值；此属性适用于以下类型的 <input> 标签：email 和 file:
+                        例子：<input type="file" name="img" multiple>
+        placeholder     属性提供一种提示（hint），描述输入域所期待的值。简短的提示在用户输入值前会显示在输入域上；此属性适用于以下类型的 <input> 标签：text, search, url, telephone, email 以及 password。
+                        例子：<input type="text" name="fname" placeholder="First name">
+        step            属性为输入域规定合法的数字间隔。如果 step="3"，则合法的数是 -3,0,3,6 等提；此属性可以与 max 和 min 属性创建一个区域值；此属性与以下type类型一起使用: number, range, date, datetime, datetime-local, month, time 和 week.
+                        例子：<input type="number" name="points" step="3">
+  </body>
+</html>
